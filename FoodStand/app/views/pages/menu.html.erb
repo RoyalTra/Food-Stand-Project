@@ -1,0 +1,31 @@
+<h1>Menu</h1>
+
+<h3> Locations </h3>
+<% @location.each do |l| %>
+    <%= l.location %>
+    <br />
+<% end %>
+
+<h3> Foods </h3>
+<% @food.each do |f| %>
+    <%= f.typesOfFood %>
+    <br />
+<% end %>
+
+<h3> Condiments </h3>
+<% @condiment.each do |o| %>
+    <%= o.typesOfCondiments %>
+    <br />
+<% end %>
+
+<h3>Beverages </h3>
+<% @beverage.each do |beers| %>
+    <%= beers.typesOfDrinks %>
+    <br />
+<% end %>
+
+<h3> Chips </h3>
+<% @chip.each do |c| %>
+    <%= c.typesOfChips %>
+    <br />
+<% end %>

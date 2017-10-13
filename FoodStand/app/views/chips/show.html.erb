@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Typesofchips:</strong>
+  <%= @chip.typesOfChips %>
+</p>
+
+<p>
+  <strong>Prices:</strong>
+  <%= @chip.prices %>
+</p>
+
+<%= link_to 'Edit', edit_chip_path(@chip) %> |
+<%= link_to 'Back', chips_path %>

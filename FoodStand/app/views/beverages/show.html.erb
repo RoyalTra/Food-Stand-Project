@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Typesofdrinks:</strong>
+  #object grabbing some sort of attribute
+  <%= @beverage.typesOfDrinks %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @beverage.price %>
+</p>
+
+<%= link_to 'Edit', edit_beverage_path(@beverage) %> |
+<%= link_to 'Back', beverages_path %>

@@ -1,0 +1,27 @@
+<%= form_with(model: chip, local: true) do |form| %>
+  <% if chip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(chip.errors.count, "error") %> prohibited this chip from being saved:</h2>
+
+      <ul>
+      <% chip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :typesOfChips %>
+    <%= form.text_field :typesOfChips, id: :chip_typesOfChips %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prices %>
+    <%= form.text_field :prices, id: :chip_prices %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

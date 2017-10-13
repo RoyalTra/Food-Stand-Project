@@ -1,0 +1,22 @@
+<%= form_with(model: condiment, local: true) do |form| %>
+  <% if condiment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(condiment.errors.count, "error") %> prohibited this condiment from being saved:</h2>
+
+      <ul>
+      <% condiment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :typesOfCondiments %>
+    <%= form.text_field :typesOfCondiments, id: :condiment_typesOfCondiments %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
