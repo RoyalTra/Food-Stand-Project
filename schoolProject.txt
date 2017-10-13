@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 (log in mysql and create a database)
 
 rails new schoolProject -d mysql
@@ -63,4 +64,71 @@ Beverage.create!(typesOfDrinks: 'Pepsi', price: 3.11)
  - root to: 'employees#index'
 
 rake db:seed
+=======
+(log in mysql and create a database)
+
+rails new schoolProject -d mysql
+
+(add the name of the database you created in /config/database.yml)
+
+rails g scaffold Food typesOfFood:string prices:float
+rails g scaffold Chip typesOfChips:string prices:float
+rails g scaffold Condiment typesOfCondiments:string
+rails g scaffold Location location:string
+rails g scaffold Employee employee_Id:integer username:string password:string fName:string lName:string dateOfBirth:date
+rails g scaffold Beverage typesOfDrinks:string price:integer
+
+rails g controller Pages home about
+
+rake db:migrate
+
+(open /db/seeds.rb and add)
+
+Food.create!(typesOfFood: 'Hot Dogs', prices: 2.00)
+
+Food.create!(typesOfFood: 'Burgers', prices: 4.00)
+
+Food.create!(typesOfFood: 'Pizza', prices: 3.00)
+Food.create!(typesOfFood: 'Popcorn', prices: 1.50)
+
+
+Chip.create!(typesOfChips: 'Cheetos', prices: 2.31)
+
+Chip.create!(typesOfChips: 'Veggie Chips', prices: 3.31)
+
+Chip.create!(typesOfChips: 'Chips', prices: 2.31)
+
+Chip.create!(typesOfChips: 'Lays', prices: 2.36)
+
+
+Condiment.create!(typesOfCondiments: 'salt')
+
+Condiment.create!(typesOfCondiments: 'mustard')
+
+Condiment.create!(typesOfCondiments: 'ketchup')
+Condiment.create!(typesOfCondiments: 'ranch')
+
+
+
+Location.create!(location: 'Aurora')
+
+Location.create!(location: 'Chicago')
+
+Location.create!(location: 'Naperville')
+
+
+Employee.create!(employee_Id: '123', username: 'Andrei123', password: 'GG', fName: 'Andrei', lName: 'M', dateOfBirth: Date.new(1992,11,29))
+
+Employee.create!(employee_Id: '234', username: 'John123', password: 'TT', fName: 'John', lName: 'Bob', dateOfBirth: Date.new(1987,11,20))
+Employee.create!(employee_Id: '123', username: 'Jake123', password: 'FF', fName: 'Jake', lName: 'Lee', dateOfBirth: Date.new(1990,05,05))
+
+Beverage.create!(typesOfDrinks: 'Corona', price: 6.11)
+Beverage.create!(typesOfDrinks: 'Water', price: 1.05)
+Beverage.create!(typesOfDrinks: 'Pepsi', price: 3.11)
+
+(open config/routes.rb and add)
+ - root to: 'employees#index'
+
+rake db:seed
+>>>>>>> a31ebca0e0fd0297f0ab32c96db2ae014bb3da35
 rails server
