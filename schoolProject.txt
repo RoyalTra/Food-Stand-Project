@@ -1,0 +1,39 @@
+(log in mysql and create a database)
+
+rails new schoolProject -d mysql
+
+(add the name of the database you created in /config/database.yml)
+
+rails g scaffold Food typesOfFood:string prices:float
+rails g scaffold Chip typesOfChips:string prices:float
+rails g scaffold Condiment typesOfCondiments:string
+rails g scaffold Location location:string
+rails g scaffold Employee employee_Id:integer username:string password:string fName:string lName:string dateOfBirth:date
+rails g scaffold Beverage typesOfDrinks:string price:integer
+
+rails g controller Pages home about
+
+rake db:migrate
+
+(open /db/seeds.rb and add)
+
+Food.create!(typesOfFood: 'Hot Dogs', prices: 2.00)
+
+Food.create!(typesOfFood: 'Burgers' prices: 4.00)
+
+Food.create!(typesOfFood: 'Pizza', prices: 3.00)
+Food.create!(typesOfFood: 'Popcorn', prices: 1.50)
+
+
+
+Chip.create!(typesOfChips: 'Cheetos', prices: 5.31)
+
+Condiment.create!(typesOfCondiments: 'salt')
+
+Location.create!(location: 'Aurora')
+
+Employee.create!(employee_Id: '123', username: 'Andrei123', password: 'GG', fName: 'Andrei', lName: 'M', dateOfBirth: Date.new(1992,11,29))
+
+Beverage.create!(typesOfDrinks: 'Corona', price: 6.11)
+
+rake db:seed
