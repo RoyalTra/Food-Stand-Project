@@ -4,7 +4,11 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+group :development do
+  gem 'rails-erd'
+end
 
+gem 'rails_admin', '~> 1.2'
 #install pry
 gem 'pry-rails'
 #this is a test
