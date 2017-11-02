@@ -5,6 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+group :development do
+  gem 'rails-erd'
+end
+
+gem 'rails_admin', '~> 1.2'
 #install pry
 gem 'pry-rails'
 
