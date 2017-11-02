@@ -2,8 +2,8 @@
 
 one:
   typesOfChips: MyString
-  prices: 
+  prices: 1.5
 
 two:
   typesOfChips: MyString
-  prices: 
+  prices: 1.5

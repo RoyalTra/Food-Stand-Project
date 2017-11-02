@@ -2,8 +2,8 @@
 
 one:
   typesOfFood: MyString
-  prices: 
+  prices: 1.5
 
 two:
   typesOfFood: MyString
-  prices: 
+  prices: 1.5
