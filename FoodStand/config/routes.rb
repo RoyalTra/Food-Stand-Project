@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :locations
+  resources :entrees
+  devise_for :users
   mount RailsAdmin::Engine => 'pages/admin', as: 'rails_admin'
   root 'pages#home'
   get 'pages/home'
@@ -11,7 +14,6 @@ Rails.application.routes.draw do
 
   resources :employees
   resources :beverages
-  resources :locations
   resources :condiments
   resources :chips
   resources :foods

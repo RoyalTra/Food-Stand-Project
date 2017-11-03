@@ -15,5 +15,6 @@ class PagesController < ApplicationController
     @food = Food.all
     @condiment = Condiment.all
     @location = Location.all
+    @entree = Entree.all
   end
 end

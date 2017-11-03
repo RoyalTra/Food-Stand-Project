@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Typesofentrees:</strong>
+  <%= @entree.typesOfEntrees %>
+</p>
+
+<p>
+  <strong>Prices:</strong>
+  <%= @entree.prices %>
+</p>
+
+<%= link_to 'Edit', edit_entree_path(@entree) %> |
+<%= link_to 'Back', entrees_path %>

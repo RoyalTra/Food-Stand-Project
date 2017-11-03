@@ -5,12 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Food.create!(typesOfFood: 'Hot Dogs', prices: 2.00)
+Food.create!(typesOfFood: 'chips', inventory: 200)
 
-Food.create!(typesOfFood: 'Burgers', prices: 4.00)
+Food.create!(typesOfFood: 'beverages', inventory: 250)
 
-Food.create!(typesOfFood: 'Pizza', prices: 3.00)
-Food.create!(typesOfFood: 'Popcorn', prices: 1.50)
+Food.create!(typesOfFood: 'condiments', inventory: 500)
+Food.create!(typesOfFood: 'entrees', inventory: 300)
 
 
 Chip.create!(typesOfChips: 'Cheetos', prices: 2.31)
@@ -46,3 +46,8 @@ Employee.create!(employee_Id: '123', username: 'Jake123', password: 'FF', fName:
 Beverage.create!(typesOfDrinks: 'Corona', price: 6.11)
 Beverage.create!(typesOfDrinks: 'Water', price: 1.05)
 Beverage.create!(typesOfDrinks: 'Pepsi', price: 3.11)
+
+Entree.create!(typesOfEntrees: 'Hot Dogs', prices: 1.49)
+Entree.create!(typesOfEntrees: 'Hamburger', prices: 2.99)
+Entree.create!(typesOfEntrees: 'Pizza', prices: 2.49)
+Entree.create!(typesOfEntrees: 'Popcorn', prices: 0.99)

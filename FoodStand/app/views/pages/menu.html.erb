@@ -7,6 +7,12 @@
     <br />
 <% end %>
 
+<h3> Entrees </h3>
+<% @entree.each do |e| %>
+    <%= e.typesOfEntrees %>
+    <br />
+<% end %>
+
 <h3> Condiments </h3>
 <% @condiment.each do |o| %>
     <%= o.typesOfCondiments %>
