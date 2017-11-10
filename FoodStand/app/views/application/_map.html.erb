@@ -1,56 +1,49 @@
-
-
 <style>
 #map{
+    padding: 55px;
+    margin-top:100px;
     height:400px;
     width: 100%;
 }
 </style>
 
-<body>
+<div class = "row">
 <div id= "map"></div>
-<div class="AddLocation">
-    <%= link_to 'Add Location', "/map/new" %>
 </div>
-
-    <div class="practice">
-
-    <h1>Locations </h1>
-        <% @locations.each do |coord| %>
-        <div class = "coordinates">
-            <%= coord.lat %><br>
-            <%= coord.lng %><br>
-        </div>
-        <% end %>
-    </div>
- 
-
 <script>
      
 
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
             center: new google.maps.LatLng(41.7606, -88.3201),
-              zoom: 12
+              zoom: 8
             });
 
             var locations = <%= @locations.to_json.html_safe %>
-
-            var marker = new google.maps.Marker({
-                position: {lat: 41.7606, lng: -88.3201},
-                map: map
-            });
+            
+            
 
             for( var i = 0; i < locations.length; i++){
-                    
-        
+               
+
+                var name = locations[id = i]["location"]
                 var mlat = parseFloat(locations[id = i]["lat"])
                 var mlng = parseFloat(locations[id = i]["lng"])
 
-                marker = new google.maps.Marker({
+                var infowindow = new google.maps.InfoWindow({
+                    content: name
+                })
+
+                var marker = new google.maps.Marker({
+                title: name,
                 position: {lat: mlat, lng: mlng},
                 map: map
                 });
+
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                });
+                
             }
         }
       
@@ -63,4 +56,3 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpUg5OmSJqtciT_yKDbYMGsCbs21e6f7Y&callback=initMap">
      
     </script>
-<body>

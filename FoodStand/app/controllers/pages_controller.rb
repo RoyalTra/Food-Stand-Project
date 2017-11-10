@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   end
 
   def about
+    @locations = Location.all
   end
 
   def contact

@@ -31,11 +31,11 @@ Condiment.create!(typesOfCondiments: 'ranch')
 
 
 
-Location.create!(location: 'Aurora')
+Location.create!(location: 'Aurora', lat: 41.7606, lng: -88.3201)
 
-Location.create!(location: 'Chicago')
+Location.create!(location: 'Chicago', lat: 41.831673, lng: -87.644294)
 
-Location.create!(location: 'Naperville')
+Location.create!(location: 'Naperville', lat: 41.770014, lng: -88.149844)
 
 
 Employee.create!(employee_Id: '123', username: 'Andrei123', password: 'GG', fName: 'Andrei', lName: 'M', dateOfBirth: Date.new(1992,11,29))

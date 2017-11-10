@@ -10,29 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012182153) do
+ActiveRecord::Schema.define(version: 20171031143310) do
 
-  create_table "beverages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "beverages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "typesOfDrinks"
-    t.float "price", limit: 24
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "chips", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "chips", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "typesOfChips"
     t.float "prices", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "condiments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "condiments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "typesOfCondiments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "employee_Id"
     t.string "username"
     t.string "password"
@@ -43,15 +43,17 @@ ActiveRecord::Schema.define(version: 20171012182153) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "foods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "foods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "typesOfFood"
     t.float "prices", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "location"
+    t.decimal "lat", precision: 15, scale: 13
+    t.decimal "lng", precision: 15, scale: 13
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
