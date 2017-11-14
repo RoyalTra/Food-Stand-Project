@@ -16,6 +16,16 @@
     <%= form.text_field :location, id: :location_location %>
   </div>
 
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude, id: :location_latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude, id: :location_longitude %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

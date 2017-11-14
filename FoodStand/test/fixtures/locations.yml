@@ -2,6 +2,10 @@
 
 one:
   location: MyString
+  latitude: 1.5
+  longitude: 1.5
 
 two:
   location: MyString
+  latitude: 1.5
+  longitude: 1.5

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Entrees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Typesofentrees</th>
+      <th>Prices</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @entrees.each do |entree| %>
+      <tr>
+        <td><%= entree.typesOfEntrees %></td>
+        <td><%= entree.prices %></td>
+        <td><%= link_to 'Show', entree %></td>
+        <td><%= link_to 'Edit', edit_entree_path(entree) %></td>
+        <td><%= link_to 'Destroy', entree, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Entree', new_entree_path %>

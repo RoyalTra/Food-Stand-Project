@@ -1,9 +1,31 @@
+<style>
+body {
+text-align: center;}
+h1 {
+text-decoration: underline;}
+h3 {
+color:green;
+text-align: center;
+font-family: helvetica;
+text-indent: 0px;}
+</style>
+
 <title>Menu</title>
 <h1>Menu</h1>
 
 <h3> Foods </h3>
 <% @food.each do |f| %>
     <%= f.typesOfFood %>
+    &emsp;&emsp;&emsp;&emsp;&emsp;
+    <%= f.inventory %>
+    <br />
+<% end %>
+
+<h3> Entrees </h3>
+<% @entree.each do |e| %>
+    <%= e.typesOfEntrees %>
+    &emsp;&emsp;&emsp;&emsp;&emsp;
+    $<%= e.prices %>
     <br />
 <% end %>
 
@@ -16,12 +38,16 @@
 <h3>Beverages </h3>
 <% @beverage.each do |beers| %>
     <%= beers.typesOfDrinks %>
+    &emsp;&emsp;&emsp;&emsp;&emsp;
+    $<%= beers.price %>
     <br />
 <% end %>
 
 <h3> Chips </h3>
 <% @chip.each do |c| %>
     <%= c.typesOfChips %>
+    &emsp;&emsp;&emsp;&emsp;&emsp;
+    $<%= c.prices %>
     <br />
 <% end %>
 

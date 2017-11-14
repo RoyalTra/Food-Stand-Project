@@ -1,0 +1,104 @@
+
+Devise Gem installation
+
+rails generate devise:install
+rails generate devise:user
+rails g devise user
+rails g devise:views
+rake db:migrate
+rails s
+
+**** make the site works. After it does go to the page:
+
+http://localhost:3000/users/sign_up
+
+**** this page should let you be able to sign up and create a user
+============================================================================
+Actual database part I had to change
+
+
+mysql> update foods set typesOfFood = 'chips' where id = 1;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update foods set typesOfFood = 'beverages' where id = 2;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update foods set typesOfFood = 'condiments' where id = 3;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from foods;
++----+-------------+--------+---------------------+---------------------+
+| id | typesOfFood | prices | created_at          | updated_at          |
++----+-------------+--------+---------------------+---------------------+
+|  1 | chips       |      2 | 2017-11-02 15:45:26 | 2017-11-02 15:45:26 |
+|  2 | beverages   |      4 | 2017-11-02 15:45:26 | 2017-11-02 15:45:26 |
+|  3 | condiments  |      3 | 2017-11-02 15:45:26 | 2017-11-02 15:45:26 |
+|  4 | Popcorn     |    1.5 | 2017-11-02 15:45:26 | 2017-11-02 15:45:26 |
++----+-------------+--------+---------------------+---------------------+
+4 rows in set (0.00 sec)
+
+mysql> update foods set typesOfFood = 'entrees' where id = 4;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update foods set prices = 'inventory';
+Query OK, 4 rows affected, 4 warnings (0.01 sec)
+Rows matched: 4  Changed: 4  Warnings: 4
+
+mysql> select * from foods;
++----+-------------+--------+---------------------+---------------------+
+| id | typesOfFood | prices | created_at          | updated_at          |
++----+-------------+--------+---------------------+---------------------+
+|  1 | chips       |      0 | 2017-11-02 15:45:26 | 2017-11-02 15:45:26 |
+|  2 | beverages   |      0 | 2017-11-02 15:45:26 | 2017-11-02 15:45:26 |
+|  3 | condiments  |      0 | 2017-11-02 15:45:26 | 2017-11-02 15:45:26 |
+|  4 | entrees     |      0 | 2017-11-02 15:45:26 | 2017-11-02 15:45:26 |
++----+-------------+--------+---------------------+---------------------+
+4 rows in set (0.00 sec)
+
+mysql> alter table foods change prices inventory bigint(50);
+Query OK, 4 rows affected (0.09 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from foods;
++----+-------------+-----------+---------------------+---------------------+
+| id | typesOfFood | inventory | created_at          | updated_at          |
++----+-------------+-----------+---------------------+---------------------+
+|  1 | chips       |         0 | 2017-11-02 15:45:26 | 2017-11-02 15:45:26 |
+|  2 | beverages   |         0 | 2017-11-02 15:45:26 | 2017-11-02 15:45:26 |
+|  3 | condiments  |         0 | 2017-11-02 15:45:26 | 2017-11-02 15:45:26 |
+|  4 | entrees     |         0 | 2017-11-02 15:45:26 | 2017-11-02 15:45:26 |
++----+-------------+-----------+---------------------+---------------------+
+4 rows in set (0.00 sec)
+====================================================================
+
+Next:
+rails g scaffold Entree typesOfEntrees:string prices:float
+
+Next:
+rake db:migrate
+//added another table called entrees... includes hot dogs, hamburgers, all the main foods
+//Make sure to add all the seeds into the seeds file then run:
+
+rake db:seeds
+
+====================================================================
+Add pk's and fk's to the table through the models
+
+====================================================================
+Regenerate the new locations model through scaffolding
+
+rails destroy scaffold Location
+
+
+Then:
+rails g scaffold Location location:string latitude:float longitude:float
+
+Next go into mysql and 
+DROP TABLE locations
+
+Last Run:
+rake db:migrate
