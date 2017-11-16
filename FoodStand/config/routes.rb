@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'pages/menu'
 
+  get 'pages/order'
+
   resources :employees
   resources :beverages
   resources :condiments

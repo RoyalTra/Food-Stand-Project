@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Order</title>
+</head>
+<body>
+    <div class="container">
+    <form>
+
+    <h1><u>Entrees</u></h1>
+<div>
+    <input type="checkbox" id="HotDog" value=2.75 > Hot Dog($2.75)<br>
+    <input type="checkbox" id="Pizza" value=2.75 > Pizza($2.75) <br>
+    <input type="checkbox" id="Burger" value=3.00 > Burger($3.00)<br>
+    <input type="checkbox" id="PopCorn" value=1.50 > PopCorn($1.50)
+  </form>
+</div
+  <form>
+
+  <h1><u>Beverages</u></h1>
+
+  <input type="checkbox" id="Coke" value=1.00 > Coke($1.00)<br>
+  <input type="checkbox" id="Sprite" value=1.00 > Sprite($1.00) <br>
+  <input type="checkbox" id="RootBeer" value=1.00 > RootBeer($1.00)<br>
+  <input type="checkbox" id="MountainDew" value=1.00 > MountainDew($1.00)
+
+  <form>
+
+  <h1><u>Condiments</u></h1>
+
+  <input type="checkbox" id="Ketchup" value=0.25 > Ketchup($0.25)<br>
+  <input type="checkbox" id="Mustard" value=0.25 > Mustard($0.25) <br>
+  <input type="checkbox" id="Pickle" value=0.25> Pickle($0.25)<br>
+  <input type="checkbox" id="Relish" value=0.25> Relish($0.25)
+
+  <form>
+
+  <h1><u>Chips</u></h1>
+
+  <input type="checkbox" id="Sunchips" value=0.75> Sunchips($0.75)<br>
+  <input type="checkbox" id="Doritos" value=0.75> Doritos($0.75) <br>
+  <input type="checkbox" id="Lays" value=0.75> Lays($0.75)<br>
+  <input type="checkbox" id="HotCheetos" value=0.75> HotCheetos($0.75)</br>
+
+  <form>
+ <br> <tr><td> Total $<input type="text" id="Total" value=0> 
+    </div>
+    </body>
+   
+<script>
+var totalCost = 0;
+$("input:checkbox").click(function(e){
+    if($("#"+e.target.id ).is(":checked")){
+        totalCost += parseFloat(e.target.value);
+        alert(totalCost);
+        $("#Total").val(totalCost);
+    }else{
+        totalCost -= parseFloat(e.target.value);
+        alert(totalCost);
+        $("#Total").val(totalCost);
+    }
+    
+})
+</script>
+   
+   
+    </html>    
