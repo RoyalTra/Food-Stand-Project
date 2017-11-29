@@ -9,6 +9,8 @@ end
 group :development do
   gem 'rails-erd'
 end
+#install HairTrigger
+gem 'hairtrigger'
 #install devise
 gem 'devise'
 #install rails admin
