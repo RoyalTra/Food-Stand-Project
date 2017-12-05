@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114233825) do
+ActiveRecord::Schema.define(version: 20171205152710) do
 
   create_table "beverages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "typesOfDrinks"
     t.float "price", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "checkouts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.float "totalCost", limit: 24
   end
 
   create_table "chips", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -84,5 +88,21 @@ ActiveRecord::Schema.define(version: 20171114233825) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  # no candidate create_trigger statement could be found, creating an adapter-specific one
+  execute(<<-TRIGGERSQL)
+CREATE TRIGGER removeSpaces BEFORE INSERT ON `users`
+FOR EACH ROW
+BEGIN
+SET NEW.email = TRIM(NEW.email);
+END
+  TRIGGERSQL
+
+  # no candidate create_trigger statement could be found, creating an adapter-specific one
+  execute(<<-TRIGGERSQL)
+CREATE TRIGGER updateInv AFTER UPDATE ON `foods`
+FOR EACH ROW
+BEGIN  IF inventory < 100  THEN  UPDATE foods SET inventory = 250 WHERE inventory < 100;  END IF; END
+  TRIGGERSQL
 
 end

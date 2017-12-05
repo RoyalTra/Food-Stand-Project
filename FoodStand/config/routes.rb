@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :checkouts
   resources :locations
   resources :entrees
   devise_for :users
@@ -13,7 +14,8 @@ Rails.application.routes.draw do
   get 'pages/menu'
 
   get 'pages/order'
-
+  post 'checkout', to: 'checkouts#checkout'
+  
   resources :employees
   resources :beverages
   resources :condiments

@@ -1,0 +1,91 @@
+<style>
+#map{
+    padding: 55px;
+    margin-top:100px;
+    height:400px;
+    width: 100%;
+}
+</style>
+
+<div class = "row">
+<div id= "map"></div>
+</div>
+<script>
+     
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+            center: new google.maps.LatLng(41.7606, -88.3201),
+              zoom: 8
+            });
+            var infoWindow = new google.maps.InfoWindow;
+            var locations = <%= @locations.to_json.html_safe %>
+            var marker = new google.maps.Marker;
+            if (navigator.geolocation) {
+                 navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            
+            marker = new google.maps.Marker({
+                position: pos,
+                content: "Your Location",
+                map: map
+            });
+            marker.addListener('click', function() {
+            infoWindow.setContent(this.content);
+            infoWindow.open(map, this);
+            map.setCenter(this.getPosition());
+            });
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+            }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+            });
+            } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+            }
+    
+            function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+                infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+            }
+            var infoNwindow = new google.maps.InfoWindow;  
+            for( var i = 0; i < locations.length; i++){
+                var name = locations[id = i]["location"]
+                var mlat = parseFloat(locations[id = i]["lat"])
+                var mlng = parseFloat(locations[id = i]["lng"])
+                var infowincontent = document.createElement('div');
+                var strong = document.createElement('strong');
+                strong.textContent = name
+                infowincontent.appendChild(strong);
+                marker = new google.maps.Marker({
+                title: name,
+                position: {lat: mlat, lng: mlng},
+                content: infowincontent,
+                map: map
+                });
+ 
+                marker.addListener('click', function() {
+                infoNwindow.setContent(this.content);
+                infoNwindow.open(map, this);
+                map.setCenter(this.getPosition());
+                });
+            }
+        }
+      
+        
+    </script>
+    
+    
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpUg5OmSJqtciT_yKDbYMGsCbs21e6f7Y&callback=initMap">
+     
+    </script>

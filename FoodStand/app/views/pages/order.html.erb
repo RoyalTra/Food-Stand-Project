@@ -44,6 +44,7 @@
 
   <form>
  <br> <tr><td> Total $<input type="text" id="Total" value=0> 
+ <br> <button id="checkout" class="btn">Checkout</button>
     </div>
     </body>
    
@@ -59,8 +60,21 @@ $("input:checkbox").click(function(e){
         alert(totalCost);
         $("#Total").val(totalCost);
     }
-    
-})
+});
+
+
+$("#checkout").click(function(){
+    var total = {"totalCost" : $("#Total").val()};
+alert(total["totalCost"]);
+    $.ajax({
+        url: "/checkout",
+        type: "POST",
+        data: {"checkout": total},
+        sucess: function(){
+            alert("You have checked out paying:" + totalCost);
+        }
+    });
+});
 </script>
    
    
